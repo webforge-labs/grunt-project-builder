@@ -2,10 +2,15 @@ module.exports = function(grunt) {
 
   var _ = grunt.util._;
 
+  grunt.task.loadNpmTasks('grunt-contrib-clean');
+  grunt.task.loadNpmTasks('grunt-contrib-copy');
+  grunt.task.loadNpmTasks('grunt-shimney-sweeper');
+  grunt.task.loadNpmTasks('grunt-contrib-requirejs');
+
   grunt.task.registerMultiTask('build', 'builds whole project js with psc-cms-js', function() {
     var target = this.target;
     var options = this.options({
-      includeMain: []
+      tmp: 'build-tmp'
     });
 
     var tasks = [], task = function(name, config) {
@@ -36,7 +41,7 @@ module.exports = function(grunt) {
     });
 
     task('merge-configs', {
-      options: {
+      options: _.merge({
         configFiles: [
           options['psc-cms-js-src']+'/lib/config.js',
           options.tmp+'/lib/shimney/config.js',
@@ -53,7 +58,7 @@ module.exports = function(grunt) {
         },
 
         template: 'resources/build-js/boot.template.js'
-      }
+      }, options['merge-configs'])
     });
 
     task('requirejs', {
