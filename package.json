@@ -1,10 +1,9 @@
 {
   "name": "grunt-project-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helps you to build your project with grunt an rjs.",
   "main": "Gruntfile.js",
-  "directories": {
-  },
+  "directories": {},
   "scripts": {
     "test": "grunt test"
   },
