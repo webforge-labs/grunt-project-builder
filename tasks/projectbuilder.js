@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.task.loadNpmTasks('grunt-shimney-sweeper');
   grunt.task.loadNpmTasks('grunt-contrib-requirejs');
 
-  grunt.task.registerMultiTask('build', 'builds whole project js with psc-cms-js', function() {
+  grunt.task.registerMultiTask('projectbuilder', 'builds whole project js with psc-cms-js', function() {
     var target = this.target;
     var options = this.options({
       tmp: 'build-tmp'
