@@ -18,7 +18,12 @@ module.exports = function(grunt) {
       tasks.push(name+':'+target);
     };
 
-    task('clean', [options.tmp]);
+    task('clean', {
+      options: {
+        force: true
+      },
+      src: [options.tmp]
+    });
 
     task('sweepout', {
       options: {
